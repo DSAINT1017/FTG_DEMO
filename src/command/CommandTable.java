@@ -11,6 +11,7 @@ import struct.Key;
 
 /**
  * キー入力データをそれに対応するアクションに変換する処理を行うクラス．
+ * 執行處理以將關鍵輸入數據轉換為相應動作的類。
  */
 public class CommandTable {
 
