@@ -372,6 +372,7 @@ public class Character {
 	 */
 	public void runAction(Action executeAction, boolean resetFlag) {
 		Motion exeMotion = this.motionList.get(executeAction.ordinal());
+		//獲取該動作list
 
 		if (this.action != executeAction) {
 			if (resetFlag) {
@@ -398,6 +399,10 @@ public class Character {
 	 */
 	public void update() {
 		System.out.print(this.action);
+		System.out.print('\n');
+
+		Motion exeMotion = this.motionList.get(this.action.ordinal());
+		System.out.print(exeMotion.getAttackGiveEndurance());
 		System.out.print('\n');
 		moveX(this.speedX);
 		moveY(this.speedY);
