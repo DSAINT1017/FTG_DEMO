@@ -57,11 +57,12 @@ public abstract class GameManager {
 				currentGameScene.close();
 
 				// 遷移先のシーンを現在のシーンにセットし,初期化処理を行う
+				// 將過渡目標場景設置為當前場景並進行初始化處理
 				currentGameScene = currentGameScene.getNextGameScene();
 				currentGameScene.initialize();
 			}
 
-			// 現在のシーンの更新
+			// 現在のシーンの更新 更新當前場景
 			currentGameScene.update();
 		} else {
 			this.isExitFlag = true;

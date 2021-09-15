@@ -115,7 +115,7 @@ public class Motion {
 	private int attackGiveEnergy;
 
 	/*耐力*/
-	private int attackGiveEndurance;
+	private int attackGiveEndurance  ;
 
 	/**
 	 * The change in the horizontal speed of the opponent when it is hit by this
@@ -230,8 +230,8 @@ public class Motion {
 		this.control = Boolean.valueOf(data[31]);
 		this.landingFlag = Boolean.valueOf(data[32]);
     //
-		this.attackGiveEndurance = Integer.valueOf(data[34]);
-		//System.out.print(attackGiveEndurance);
+		this.attackGiveEndurance   = Integer.valueOf(data[34]);
+		//System.out.print(attackGiveEndurance  );
 		//System.out.print('\n');
 		// data[33]は読み込む画像が入ったディレクトリ名
 		//
@@ -277,7 +277,7 @@ public class Motion {
 		this.control = motionData.isControl();
 		this.landingFlag = motionData.isLandingFlag();
 		//
-		this.attackGiveEndurance =  motionData.getAttackGiveEndurance();
+		this.attackGiveEndurance   =  motionData.getAttackGiveEndurance  ();
 
 		// 画像は読み込まない
 	}
@@ -405,6 +405,7 @@ public class Motion {
 	public State getState() {
 		return this.state;
 	}
+	
 
 	/**
 	 * Returns the horizontal speed of the attack hit box.
@@ -534,8 +535,8 @@ public class Motion {
 	}
 
 	/*耐力*/
-	public int getAttackGiveEndurance(){
-		return attackGiveEndurance;
+	public int getAttackGiveEndurance  (){
+		return attackGiveEndurance  ;
 	}
 	/**
 	 * Returns the change in the horizontal speed of the opponent when it is hit
@@ -813,8 +814,8 @@ public class Motion {
 		this.attackGiveEnergy = attackGiveEnergy;
 	}
 	/*耐力*/
-	public void setAttackGiveEndurance(int attackGiveEndurance){
-		this.attackGiveEndurance = attackGiveEndurance;
+	public void setAttackGiveEndurance  (int attackGiveEndurance  ){
+		this.attackGiveEndurance   = attackGiveEndurance  ;
 	}
 
 	/**
