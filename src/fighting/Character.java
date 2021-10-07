@@ -193,7 +193,7 @@ public class Character {
 		this.hitCount = 0;
 		this.isSimulateProcess = false;
 		/*耐力*/
-		this.endurance = 100;
+		this.endurance = 0;
 	}
 
 	/**
@@ -333,8 +333,12 @@ public class Character {
 		if (FlagSetting.trainingModeFlag) {
 			this.hp = LaunchSetting.maxHp[this.playerNumber ? 0 : 1];
 			this.energy = LaunchSetting.maxEnergy[this.playerNumber ? 0 : 1];
+			this.endurance = LaunchSetting.maxEndurance[this.playerNumber ? 0 : 1];
 		} else {
-			this.energy = 50;
+			this.hp = LaunchSetting.maxHp[this.playerNumber ? 0 : 1];
+			this.energy = LaunchSetting.maxEnergy[this.playerNumber ? 0 : 1];
+			this.endurance = LaunchSetting.maxEndurance[this.playerNumber ? 0 : 1];
+			//this.energy = 50;
 		}
 
 		this.speedX = 0;
@@ -347,7 +351,7 @@ public class Character {
 		this.hitConfirm = false;
 		this.hitCount = 0;
 		this.lastHitFrame = 0;
-		this.endurance = 100;
+		//this.endurance = 100;
 		if (this.playerNumber) {
 			this.front = true;
 			// 初期の立ち位置
@@ -373,7 +377,11 @@ public class Character {
 	public void runAction(Action executeAction, boolean resetFlag) {
 		Motion exeMotion = this.motionList.get(executeAction.ordinal());
 		//獲取該動作list
-
+		/*int getEndurance = exeMotion.getAttackGiveEndurance();
+		System.out.print("runAction");
+		System.out.print(getEndurance);
+		System.out.print('\n');
+		*/
 		if (this.action != executeAction) {
 			if (resetFlag) {
 				destroyAttackInstance();
@@ -382,6 +390,9 @@ public class Character {
 			this.remainingFrame = exeMotion.getFrameNumber();
 			this.hitConfirm = false;
 			this.energy += exeMotion.getAttackStartAddEnergy();
+
+			this.endurance += exeMotion.getAttackGiveEndurance();
+
 		}
 
 		this.action = executeAction;
@@ -398,12 +409,17 @@ public class Character {
 	 * Updates character's information.
 	 */
 	public void update() {
-		System.out.print(this.action);
-		System.out.print('\n');
 
-		Motion exeMotion = this.motionList.get(this.action.ordinal());
-		System.out.print(exeMotion.getAttackGiveEndurance());
-		System.out.print('\n');
+    if (this.action == Action.STAND){
+			System.out.print(this.action);
+			System.out.print('\n');
+			Motion exeMotion = this.motionList.get(this.action.ordinal());
+			this.endurance += 1;
+	  }
+
+		//this.endurance += getEndurance;
+		//System.out.print(this.endurance);
+		//System.out.print('\n');
 		moveX(this.speedX);
 		moveY(this.speedY);
 
@@ -413,10 +429,14 @@ public class Character {
 		if (FlagSetting.trainingModeFlag) {
 			this.energy = LaunchSetting.maxEnergy[this.playerNumber ? 0 : 1];
 			this.hp = LaunchSetting.maxHp[this.playerNumber ? 0 : 1];
+			this.endurance = LaunchSetting.maxEndurance[this.playerNumber ? 0 : 1];
 		}
 
 		if (this.energy > LaunchSetting.maxEnergy[this.playerNumber ? 0 : 1]) {
 			this.energy = LaunchSetting.maxEnergy[this.playerNumber ? 0 : 1];
+		}
+		if(this.endurance>LaunchSetting.maxEndurance[this.playerNumber ? 0 : 1]) {
+			this.endurance = LaunchSetting.maxEndurance[this.playerNumber ? 0 : 1];
 		}
 
 		if (getHitAreaBottom() >= GameSetting.STAGE_HEIGHT) {

@@ -18,7 +18,7 @@ public final class LaunchSetting {
 	 */
 	public static int[] maxEnergy = { 300, 300 };
 
-	public static int[] maxEndurance = {100,100};
+	public static int[] maxEndurance = {300,300};
 
 	/**
 	 * P1,P2のAI名を格納する配列．<br>
