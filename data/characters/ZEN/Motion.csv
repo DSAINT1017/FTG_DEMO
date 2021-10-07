@@ -1,11 +1,11 @@
 motionName,frameNumber,speedX,speedY,hitAreaLeft,hitAreaRight,hitAreaUp,hitAreaDown,state,attack.hitAreaLeft,attack.hitAreaRight,attack.hitAreaUp,attack.hitAreaDown,attack.speedX,attack.speedY,attack.StartUp,attack.Active,attack.HitDamage,attack.GuardDamage,attack.StartAddEnergy,attack.HitAddEnergy,attack.GuardAddEnergy,attack.GiveEnergy,attack.ImpactX,attack.ImpactY,attack.GiveGuardRecov,attack.AttackType,attack.DownProp,cancelAbleFrame,cancelAbleMotionLevel,motionLevel,control,landingFlag,Image,costEndurance
 NEUTRAL,6,0,0,120,160,100,305,STAND,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,FALSE,-1,-1,10,TRUE,FALSE,NEUTRAL,0
-STAND,48,0,0,120,160,100,305,STAND,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,FALSE,-1,-1,10,TRUE,FALSE,STAND,1
-FORWARD_WALK,27,5,0,120,160,100,305,STAND,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,FALSE,-1,-1,10,TRUE,FALSE,FORWARD_WALK,5
+STAND,48,0,0,120,160,100,305,STAND,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,FALSE,-1,-1,10,TRUE,FALSE,STAND,0
+FORWARD_WALK,27,5,0,120,160,100,305,STAND,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,FALSE,-1,-1,10,TRUE,FALSE,FORWARD_WALK,0
 DASH,29,10,0,120,160,110,305,STAND,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,FALSE,-1,-1,10,TRUE,FALSE,DASH,0
 BACK_STEP,25,-15,0,120,160,100,305,STAND,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,FALSE,-1,-1,2,FALSE,FALSE,BACK_STEP,0
 CROUCH,49,0,0,120,160,140,305,CROUCH,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,FALSE,-1,-1,10,TRUE,FALSE,CROUCH,0
-JUMP,4,0,-24,120,160,100,305,AIR,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,FALSE,-1,-1,4,FALSE,FALSE,JUMP,5
+JUMP,4,0,-24,120,160,100,305,AIR,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,FALSE,-1,-1,4,FALSE,FALSE,JUMP,-5
 FOR_JUMP,4,6,-22,120,160,100,305,AIR,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,FALSE,-1,-1,4,FALSE,FALSE,FOR_JUMP,0
 BACK_JUMP,4,-6,-22,120,160,100,305,AIR,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,FALSE,-1,-1,4,FALSE,FALSE,BACK_JUMP,0
 AIR,21,0,0,120,160,100,305,AIR,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,FALSE,-1,-1,10,TRUE,TRUE,AIR,0
