@@ -396,6 +396,8 @@ public class Character {
 		}
 
 		this.action = executeAction;
+		System.out.print(executeAction);
+		System.out.print('\n');
 		this.state = exeMotion.getState();
 
 		if (exeMotion.getSpeedX() != 0) {
