@@ -375,6 +375,11 @@ public class Character {
 	 *            暫停當前正在執行的操作的標誌
 	 */
 	public void runAction(Action executeAction, boolean resetFlag) {
+	/*	if(this.endurance < 0){
+		 executeAction = Action.STAND;
+		 resetFlag = true;
+	  }
+		*/
 		Motion exeMotion = this.motionList.get(executeAction.ordinal());
 		//獲取該動作list
 		/*int getEndurance = exeMotion.getAttackGiveEndurance();
@@ -396,8 +401,8 @@ public class Character {
 		}
 
 		this.action = executeAction;
-		System.out.print(executeAction);
-		System.out.print('\n');
+		//System.out.print(executeAction);
+		//System.out.print('\n');
 		this.state = exeMotion.getState();
 
 		if (exeMotion.getSpeedX() != 0) {
@@ -413,9 +418,9 @@ public class Character {
 	public void update() {
 
     if (this.action == Action.STAND){
-			System.out.print(this.action);
-			System.out.print('\n');
-			Motion exeMotion = this.motionList.get(this.action.ordinal());
+			//System.out.print(this.action);
+			//System.out.print('\n');
+			//Motion exeMotion = this.motionList.get(this.action.ordinal());
 			this.endurance += 1;
 	  }
 

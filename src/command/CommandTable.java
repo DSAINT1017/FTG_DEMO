@@ -25,6 +25,7 @@ public class CommandTable {
 	/**
 	 * P1またはP2のキー入力データを対応するアクションに変換する処理を行い，そのアクションを返す．<br>
 	 * P1とP2の判別は，キャラクターデータが持つプレイヤー番号によって行う．
+	 * P1 和 P2 由角色數據的玩家編號區分
 	 *
 	 * @param character
 	 *            キャラクターデータ
@@ -77,12 +78,14 @@ public class CommandTable {
 		}
 
 		return convertKeyToAction(pushA, pushB, pushC, nowKeyData, commandList, character.getState(),
-				character.isFront());
+				character.isFront(),character.getEndurance());
 	}
 
 	/**
 	 * P1またはP2のキー入力データを対応するアクションに変換する処理を行い，そのアクションを返す．<br>
 	 * このメソッドはシミュレータ内でのみ呼び出される.
+	 *執行將 P1 或 P2 的按鍵輸入數據轉換為相應動作的過程，並返回該動作。 <br>
+   * 此方法僅在模擬器內調用。
 	 *
 	 * @param character
 	 *            キャラクターデータ
@@ -128,7 +131,7 @@ public class CommandTable {
 			}
 		}
 
-		return convertKeyToAction(pushA, pushB, pushC, nowKey, commandList, character.getState(), character.isFront());
+		return convertKeyToAction(pushA, pushB, pushC, nowKey, commandList, character.getState(), character.isFront(),character.getEndurance());
 	}
 
 	/**
@@ -156,13 +159,16 @@ public class CommandTable {
 	 * @see Action
 	 */
 	private Action convertKeyToAction(boolean pushA, boolean pushB, boolean pushC, Key nowKeyData, int[] commandList,
-			State state, boolean isFront) {
+			State state, boolean isFront,int endurance) {
 		// 789
 		// 456
 		// 123
-
+		System.out.print(endurance);
+		System.out.print('\n');
 		// AIR Action
-		if (state == State.AIR) {
+
+
+		if (state == State.AIR ) {
 			if (pushB) {
 				// special move
 				if ((commandList[0] == 6 && commandList[1] == 3 && commandList[2] == 2)) {
@@ -222,6 +228,7 @@ public class CommandTable {
 
 			// Ground Action
 		} else {
+			if(endurance>=0){
 			// Super special move
 			if (pushC) {
 				if ((commandList[0] == 6 && commandList[1] == 3 && commandList[2] == 2)) {
@@ -323,8 +330,12 @@ public class CommandTable {
 					return Action.STAND;// STAND
 				}
 
+
 			}
 		}
+
 		return Action.STAND;
+	}
+
 	}
 }
